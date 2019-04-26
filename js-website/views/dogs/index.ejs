@@ -1,0 +1,41 @@
+<% include ..\partials\header.ejs %>
+
+
+
+<div class="container">
+    <header class="jumbotron">
+        <div> 
+            <div class="container"> 
+                <h1>Welcome to the Dogs are Family!</h1>
+                <p>View our handpicked pets.</p>
+                <p>
+                    <a class=" btn btn-primary btn-large" href="/dogs/new">Add New Dog</a>
+                </p>    
+            </div>          
+        </div>
+           
+     </header>
+
+     <div class="row">
+        <div class="col-lg-12">
+            <h3>Our Most Popular Dogs!</h3>
+        </div>
+     </div>
+
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% dogs.forEach(function(dog){ %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail">
+                         <img src= "<%= dog.image %>">  
+                         <div class="caption">
+                             <h4><%= dog.name %></h4>
+                         </div> 
+                         <p>
+                             <a href="/dogs/<%= dog._id %>" class="btn btn-primary">More Info</a>
+                         </p>                  
+                    </div>  
+                </div>
+            <% }); %>
+        </div>
+    </div>
+<% include ..\partials\footer.ejs %>
